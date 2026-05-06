@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo:27017/koa-db
+      - JWT_SECRET=prod_jwt_secret_override_me
+      - JWT_REFRESH_SECRET=prod_refresh_secret_override_me
+    depends_on:
+      - mongo
+    restart: always
+
+  mongo:
+    image: mongo:6
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
+    restart: always
+
+volumes:
+  mongodb_data:
