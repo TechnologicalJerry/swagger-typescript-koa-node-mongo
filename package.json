@@ -1,5 +1,5 @@
 {
-  "name": "koa-typescript-backend",
+  "name": "swagger-typescript-koa-node-mongo",
   "version": "1.0.0",
   "description": "Production-ready Koa.js backend with TypeScript, MongoDB, and Swagger",
   "main": "dist/server.js",
